@@ -1,0 +1,16 @@
+syntax = "proto3";
+package operation_pb;
+option go_package="models/operation_pb";
+
+message SumRequest {
+    int32 first_number = 1;
+    int32 second_number = 2;
+}
+
+message SumResponse {
+    int32 sum_result = 1;
+}
+
+service OperationService {
+    rpc Sum (SumRequest) returns (SumResponse);
+}
