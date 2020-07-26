@@ -225,6 +225,100 @@ func (x *PrimeFactorsResponse) GetNumber() int64 {
 	return 0
 }
 
+type ComputeAverageRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Number int64 `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+}
+
+func (x *ComputeAverageRequest) Reset() {
+	*x = ComputeAverageRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_models_operation_pb_operation_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ComputeAverageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ComputeAverageRequest) ProtoMessage() {}
+
+func (x *ComputeAverageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_models_operation_pb_operation_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ComputeAverageRequest.ProtoReflect.Descriptor instead.
+func (*ComputeAverageRequest) Descriptor() ([]byte, []int) {
+	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ComputeAverageRequest) GetNumber() int64 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
+type ComputeAverageResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Average float64 `protobuf:"fixed64,1,opt,name=average,proto3" json:"average,omitempty"`
+}
+
+func (x *ComputeAverageResponse) Reset() {
+	*x = ComputeAverageResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_models_operation_pb_operation_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ComputeAverageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ComputeAverageResponse) ProtoMessage() {}
+
+func (x *ComputeAverageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_models_operation_pb_operation_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ComputeAverageResponse.ProtoReflect.Descriptor instead.
+func (*ComputeAverageResponse) Descriptor() ([]byte, []int) {
+	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ComputeAverageResponse) GetAverage() float64 {
+	if x != nil {
+		return x.Average
+	}
+	return 0
+}
+
 var File_models_operation_pb_operation_proto protoreflect.FileDescriptor
 
 var file_models_operation_pb_operation_proto_rawDesc = []byte{
@@ -245,20 +339,32 @@ var file_models_operation_pb_operation_proto_rawDesc = []byte{
 	0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x2e, 0x0a, 0x14, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46,
 	0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
 	0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06,
-	0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x32, 0xab, 0x01, 0x0a, 0x10, 0x4f, 0x70, 0x65, 0x72, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03, 0x53,
-	0x75, 0x6d, 0x12, 0x18, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70,
-	0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x6f,
-	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59, 0x0a, 0x0c, 0x50, 0x72, 0x69,
-	0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x12, 0x21, 0x2e, 0x6f, 0x70, 0x65, 0x72,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46, 0x61,
-	0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x6f,
-	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d,
-	0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x30, 0x01, 0x42, 0x15, 0x5a, 0x13, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x6f,
-	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x2f, 0x0a, 0x15, 0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74,
+	0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x32, 0x0a, 0x16, 0x43, 0x6f, 0x6d, 0x70, 0x75,
+	0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x01, 0x52, 0x07, 0x61, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x32, 0x8c, 0x02, 0x0a, 0x10,
+	0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x12, 0x3c, 0x0a, 0x03, 0x53, 0x75, 0x6d, 0x12, 0x18, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x19, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62,
+	0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59,
+	0x0a, 0x0c, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x12, 0x21,
+	0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72,
+	0x69, 0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x22, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62,
+	0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x5f, 0x0a, 0x0e, 0x43, 0x6f, 0x6d,
+	0x70, 0x75, 0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x23, 0x2e, 0x6f, 0x70,
+	0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x43, 0x6f, 0x6d, 0x70, 0x75,
+	0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x24, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e,
+	0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x42, 0x15, 0x5a, 0x13, 0x6d, 0x6f,
+	0x64, 0x65, 0x6c, 0x73, 0x2f, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70,
+	0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -273,20 +379,24 @@ func file_models_operation_pb_operation_proto_rawDescGZIP() []byte {
 	return file_models_operation_pb_operation_proto_rawDescData
 }
 
-var file_models_operation_pb_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_models_operation_pb_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_models_operation_pb_operation_proto_goTypes = []interface{}{
-	(*SumRequest)(nil),           // 0: operation_pb.SumRequest
-	(*SumResponse)(nil),          // 1: operation_pb.SumResponse
-	(*PrimeFactorsRequest)(nil),  // 2: operation_pb.PrimeFactorsRequest
-	(*PrimeFactorsResponse)(nil), // 3: operation_pb.PrimeFactorsResponse
+	(*SumRequest)(nil),             // 0: operation_pb.SumRequest
+	(*SumResponse)(nil),            // 1: operation_pb.SumResponse
+	(*PrimeFactorsRequest)(nil),    // 2: operation_pb.PrimeFactorsRequest
+	(*PrimeFactorsResponse)(nil),   // 3: operation_pb.PrimeFactorsResponse
+	(*ComputeAverageRequest)(nil),  // 4: operation_pb.ComputeAverageRequest
+	(*ComputeAverageResponse)(nil), // 5: operation_pb.ComputeAverageResponse
 }
 var file_models_operation_pb_operation_proto_depIdxs = []int32{
 	0, // 0: operation_pb.OperationService.Sum:input_type -> operation_pb.SumRequest
 	2, // 1: operation_pb.OperationService.PrimeFactors:input_type -> operation_pb.PrimeFactorsRequest
-	1, // 2: operation_pb.OperationService.Sum:output_type -> operation_pb.SumResponse
-	3, // 3: operation_pb.OperationService.PrimeFactors:output_type -> operation_pb.PrimeFactorsResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: operation_pb.OperationService.ComputeAverage:input_type -> operation_pb.ComputeAverageRequest
+	1, // 3: operation_pb.OperationService.Sum:output_type -> operation_pb.SumResponse
+	3, // 4: operation_pb.OperationService.PrimeFactors:output_type -> operation_pb.PrimeFactorsResponse
+	5, // 5: operation_pb.OperationService.ComputeAverage:output_type -> operation_pb.ComputeAverageResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -346,6 +456,30 @@ func file_models_operation_pb_operation_proto_init() {
 				return nil
 			}
 		}
+		file_models_operation_pb_operation_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ComputeAverageRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_models_operation_pb_operation_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ComputeAverageResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -353,7 +487,7 @@ func file_models_operation_pb_operation_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_models_operation_pb_operation_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -381,6 +515,7 @@ const _ = grpc.SupportPackageIsVersion6
 type OperationServiceClient interface {
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
 	PrimeFactors(ctx context.Context, in *PrimeFactorsRequest, opts ...grpc.CallOption) (OperationService_PrimeFactorsClient, error)
+	ComputeAverage(ctx context.Context, opts ...grpc.CallOption) (OperationService_ComputeAverageClient, error)
 }
 
 type operationServiceClient struct {
@@ -432,10 +567,45 @@ func (x *operationServicePrimeFactorsClient) Recv() (*PrimeFactorsResponse, erro
 	return m, nil
 }
 
+func (c *operationServiceClient) ComputeAverage(ctx context.Context, opts ...grpc.CallOption) (OperationService_ComputeAverageClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_OperationService_serviceDesc.Streams[1], "/operation_pb.OperationService/ComputeAverage", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &operationServiceComputeAverageClient{stream}
+	return x, nil
+}
+
+type OperationService_ComputeAverageClient interface {
+	Send(*ComputeAverageRequest) error
+	CloseAndRecv() (*ComputeAverageResponse, error)
+	grpc.ClientStream
+}
+
+type operationServiceComputeAverageClient struct {
+	grpc.ClientStream
+}
+
+func (x *operationServiceComputeAverageClient) Send(m *ComputeAverageRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *operationServiceComputeAverageClient) CloseAndRecv() (*ComputeAverageResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(ComputeAverageResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // OperationServiceServer is the server API for OperationService service.
 type OperationServiceServer interface {
 	Sum(context.Context, *SumRequest) (*SumResponse, error)
 	PrimeFactors(*PrimeFactorsRequest, OperationService_PrimeFactorsServer) error
+	ComputeAverage(OperationService_ComputeAverageServer) error
 }
 
 // UnimplementedOperationServiceServer can be embedded to have forward compatible implementations.
@@ -447,6 +617,9 @@ func (*UnimplementedOperationServiceServer) Sum(context.Context, *SumRequest) (*
 }
 func (*UnimplementedOperationServiceServer) PrimeFactors(*PrimeFactorsRequest, OperationService_PrimeFactorsServer) error {
 	return status.Errorf(codes.Unimplemented, "method PrimeFactors not implemented")
+}
+func (*UnimplementedOperationServiceServer) ComputeAverage(OperationService_ComputeAverageServer) error {
+	return status.Errorf(codes.Unimplemented, "method ComputeAverage not implemented")
 }
 
 func RegisterOperationServiceServer(s *grpc.Server, srv OperationServiceServer) {
@@ -492,6 +665,32 @@ func (x *operationServicePrimeFactorsServer) Send(m *PrimeFactorsResponse) error
 	return x.ServerStream.SendMsg(m)
 }
 
+func _OperationService_ComputeAverage_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(OperationServiceServer).ComputeAverage(&operationServiceComputeAverageServer{stream})
+}
+
+type OperationService_ComputeAverageServer interface {
+	SendAndClose(*ComputeAverageResponse) error
+	Recv() (*ComputeAverageRequest, error)
+	grpc.ServerStream
+}
+
+type operationServiceComputeAverageServer struct {
+	grpc.ServerStream
+}
+
+func (x *operationServiceComputeAverageServer) SendAndClose(m *ComputeAverageResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *operationServiceComputeAverageServer) Recv() (*ComputeAverageRequest, error) {
+	m := new(ComputeAverageRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _OperationService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "operation_pb.OperationService",
 	HandlerType: (*OperationServiceServer)(nil),
@@ -506,6 +705,11 @@ var _OperationService_serviceDesc = grpc.ServiceDesc{
 			StreamName:    "PrimeFactors",
 			Handler:       _OperationService_PrimeFactors_Handler,
 			ServerStreams: true,
+		},
+		{
+			StreamName:    "ComputeAverage",
+			Handler:       _OperationService_ComputeAverage_Handler,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "models/operation_pb/operation.proto",
