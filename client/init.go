@@ -14,5 +14,6 @@ func Initialize() {
 		c := operation_pb.NewOperationServiceClient(clientConnection)
 		Sum(c)
 		PrimeFactors(c)
+		ComputeAverage(c)
 	}
 }
