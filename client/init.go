@@ -13,5 +13,6 @@ func Initialize() {
 		defer clientConnection.Close()
 		c := operation_pb.NewOperationServiceClient(clientConnection)
 		Sum(c)
+		PrimeFactors(c)
 	}
 }
