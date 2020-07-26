@@ -34,8 +34,8 @@ type SumRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	FirstNumber  int32 `protobuf:"varint,1,opt,name=first_number,json=firstNumber,proto3" json:"first_number,omitempty"`
-	SecondNumber int32 `protobuf:"varint,2,opt,name=second_number,json=secondNumber,proto3" json:"second_number,omitempty"`
+	FirstNumber  int64 `protobuf:"varint,1,opt,name=first_number,json=firstNumber,proto3" json:"first_number,omitempty"`
+	SecondNumber int64 `protobuf:"varint,2,opt,name=second_number,json=secondNumber,proto3" json:"second_number,omitempty"`
 }
 
 func (x *SumRequest) Reset() {
@@ -70,14 +70,14 @@ func (*SumRequest) Descriptor() ([]byte, []int) {
 	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SumRequest) GetFirstNumber() int32 {
+func (x *SumRequest) GetFirstNumber() int64 {
 	if x != nil {
 		return x.FirstNumber
 	}
 	return 0
 }
 
-func (x *SumRequest) GetSecondNumber() int32 {
+func (x *SumRequest) GetSecondNumber() int64 {
 	if x != nil {
 		return x.SecondNumber
 	}
@@ -89,7 +89,7 @@ type SumResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SumResult int32 `protobuf:"varint,1,opt,name=sum_result,json=sumResult,proto3" json:"sum_result,omitempty"`
+	SumResult int64 `protobuf:"varint,1,opt,name=sum_result,json=sumResult,proto3" json:"sum_result,omitempty"`
 }
 
 func (x *SumResponse) Reset() {
@@ -124,9 +124,103 @@ func (*SumResponse) Descriptor() ([]byte, []int) {
 	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SumResponse) GetSumResult() int32 {
+func (x *SumResponse) GetSumResult() int64 {
 	if x != nil {
 		return x.SumResult
+	}
+	return 0
+}
+
+type PrimeFactorsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Number int64 `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+}
+
+func (x *PrimeFactorsRequest) Reset() {
+	*x = PrimeFactorsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_models_operation_pb_operation_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeFactorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeFactorsRequest) ProtoMessage() {}
+
+func (x *PrimeFactorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_models_operation_pb_operation_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeFactorsRequest.ProtoReflect.Descriptor instead.
+func (*PrimeFactorsRequest) Descriptor() ([]byte, []int) {
+	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *PrimeFactorsRequest) GetNumber() int64 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
+type PrimeFactorsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Number int64 `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
+}
+
+func (x *PrimeFactorsResponse) Reset() {
+	*x = PrimeFactorsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_models_operation_pb_operation_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeFactorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeFactorsResponse) ProtoMessage() {}
+
+func (x *PrimeFactorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_models_operation_pb_operation_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeFactorsResponse.ProtoReflect.Descriptor instead.
+func (*PrimeFactorsResponse) Descriptor() ([]byte, []int) {
+	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *PrimeFactorsResponse) GetNumber() int64 {
+	if x != nil {
+		return x.Number
 	}
 	return 0
 }
@@ -139,20 +233,32 @@ var file_models_operation_pb_operation_proto_rawDesc = []byte{
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0c, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e,
 	0x5f, 0x70, 0x62, 0x22, 0x54, 0x0a, 0x0a, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x12, 0x21, 0x0a, 0x0c, 0x66, 0x69, 0x72, 0x73, 0x74, 0x5f, 0x6e, 0x75, 0x6d, 0x62, 0x65,
-	0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0b, 0x66, 0x69, 0x72, 0x73, 0x74, 0x4e, 0x75,
+	0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x66, 0x69, 0x72, 0x73, 0x74, 0x4e, 0x75,
 	0x6d, 0x62, 0x65, 0x72, 0x12, 0x23, 0x0a, 0x0d, 0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x5f, 0x6e,
-	0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0c, 0x73, 0x65, 0x63,
+	0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x73, 0x65, 0x63,
 	0x6f, 0x6e, 0x64, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x2c, 0x0a, 0x0b, 0x53, 0x75, 0x6d,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x73, 0x75, 0x6d, 0x5f,
-	0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x09, 0x73, 0x75,
-	0x6d, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0x4e, 0x0a, 0x10, 0x4f, 0x70, 0x65, 0x72, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3a, 0x0a, 0x03, 0x53,
+	0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x73, 0x75,
+	0x6d, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x2d, 0x0a, 0x13, 0x50, 0x72, 0x69, 0x6d, 0x65,
+	0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16,
+	0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06,
+	0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x2e, 0x0a, 0x14, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46,
+	0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
+	0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06,
+	0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x32, 0xab, 0x01, 0x0a, 0x10, 0x4f, 0x70, 0x65, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03, 0x53,
 	0x75, 0x6d, 0x12, 0x18, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70,
 	0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x6f,
 	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x15, 0x5a, 0x13, 0x6d, 0x6f, 0x64, 0x65, 0x6c,
-	0x73, 0x2f, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59, 0x0a, 0x0c, 0x50, 0x72, 0x69,
+	0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x12, 0x21, 0x2e, 0x6f, 0x70, 0x65, 0x72,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46, 0x61,
+	0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x6f,
+	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d,
+	0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x30, 0x01, 0x42, 0x15, 0x5a, 0x13, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x6f,
+	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -167,16 +273,20 @@ func file_models_operation_pb_operation_proto_rawDescGZIP() []byte {
 	return file_models_operation_pb_operation_proto_rawDescData
 }
 
-var file_models_operation_pb_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_models_operation_pb_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_models_operation_pb_operation_proto_goTypes = []interface{}{
-	(*SumRequest)(nil),  // 0: operation_pb.SumRequest
-	(*SumResponse)(nil), // 1: operation_pb.SumResponse
+	(*SumRequest)(nil),           // 0: operation_pb.SumRequest
+	(*SumResponse)(nil),          // 1: operation_pb.SumResponse
+	(*PrimeFactorsRequest)(nil),  // 2: operation_pb.PrimeFactorsRequest
+	(*PrimeFactorsResponse)(nil), // 3: operation_pb.PrimeFactorsResponse
 }
 var file_models_operation_pb_operation_proto_depIdxs = []int32{
 	0, // 0: operation_pb.OperationService.Sum:input_type -> operation_pb.SumRequest
-	1, // 1: operation_pb.OperationService.Sum:output_type -> operation_pb.SumResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: operation_pb.OperationService.PrimeFactors:input_type -> operation_pb.PrimeFactorsRequest
+	1, // 2: operation_pb.OperationService.Sum:output_type -> operation_pb.SumResponse
+	3, // 3: operation_pb.OperationService.PrimeFactors:output_type -> operation_pb.PrimeFactorsResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -212,6 +322,30 @@ func file_models_operation_pb_operation_proto_init() {
 				return nil
 			}
 		}
+		file_models_operation_pb_operation_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeFactorsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_models_operation_pb_operation_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeFactorsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -219,7 +353,7 @@ func file_models_operation_pb_operation_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_models_operation_pb_operation_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -246,6 +380,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type OperationServiceClient interface {
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
+	PrimeFactors(ctx context.Context, in *PrimeFactorsRequest, opts ...grpc.CallOption) (OperationService_PrimeFactorsClient, error)
 }
 
 type operationServiceClient struct {
@@ -265,9 +400,42 @@ func (c *operationServiceClient) Sum(ctx context.Context, in *SumRequest, opts .
 	return out, nil
 }
 
+func (c *operationServiceClient) PrimeFactors(ctx context.Context, in *PrimeFactorsRequest, opts ...grpc.CallOption) (OperationService_PrimeFactorsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_OperationService_serviceDesc.Streams[0], "/operation_pb.OperationService/PrimeFactors", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &operationServicePrimeFactorsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type OperationService_PrimeFactorsClient interface {
+	Recv() (*PrimeFactorsResponse, error)
+	grpc.ClientStream
+}
+
+type operationServicePrimeFactorsClient struct {
+	grpc.ClientStream
+}
+
+func (x *operationServicePrimeFactorsClient) Recv() (*PrimeFactorsResponse, error) {
+	m := new(PrimeFactorsResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // OperationServiceServer is the server API for OperationService service.
 type OperationServiceServer interface {
 	Sum(context.Context, *SumRequest) (*SumResponse, error)
+	PrimeFactors(*PrimeFactorsRequest, OperationService_PrimeFactorsServer) error
 }
 
 // UnimplementedOperationServiceServer can be embedded to have forward compatible implementations.
@@ -276,6 +444,9 @@ type UnimplementedOperationServiceServer struct {
 
 func (*UnimplementedOperationServiceServer) Sum(context.Context, *SumRequest) (*SumResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Sum not implemented")
+}
+func (*UnimplementedOperationServiceServer) PrimeFactors(*PrimeFactorsRequest, OperationService_PrimeFactorsServer) error {
+	return status.Errorf(codes.Unimplemented, "method PrimeFactors not implemented")
 }
 
 func RegisterOperationServiceServer(s *grpc.Server, srv OperationServiceServer) {
@@ -300,6 +471,27 @@ func _OperationService_Sum_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OperationService_PrimeFactors_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(PrimeFactorsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(OperationServiceServer).PrimeFactors(m, &operationServicePrimeFactorsServer{stream})
+}
+
+type OperationService_PrimeFactorsServer interface {
+	Send(*PrimeFactorsResponse) error
+	grpc.ServerStream
+}
+
+type operationServicePrimeFactorsServer struct {
+	grpc.ServerStream
+}
+
+func (x *operationServicePrimeFactorsServer) Send(m *PrimeFactorsResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _OperationService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "operation_pb.OperationService",
 	HandlerType: (*OperationServiceServer)(nil),
@@ -309,6 +501,12 @@ var _OperationService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _OperationService_Sum_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "PrimeFactors",
+			Handler:       _OperationService_PrimeFactors_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "models/operation_pb/operation.proto",
 }

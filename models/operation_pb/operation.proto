@@ -3,14 +3,23 @@ package operation_pb;
 option go_package="models/operation_pb";
 
 message SumRequest {
-    int32 first_number = 1;
-    int32 second_number = 2;
+    int64 first_number = 1;
+    int64 second_number = 2;
 }
 
 message SumResponse {
-    int32 sum_result = 1;
+    int64 sum_result = 1;
+}
+
+message PrimeFactorsRequest {
+    int64 number = 1;
+}
+
+message PrimeFactorsResponse {
+    int64 number = 2;
 }
 
 service OperationService {
-    rpc Sum (SumRequest) returns (SumResponse);
+    rpc Sum (SumRequest) returns (SumResponse) {};
+    rpc PrimeFactors (PrimeFactorsRequest) returns (stream PrimeFactorsResponse) {};
 }
