@@ -319,7 +319,7 @@ func (x *ComputeAverageResponse) GetAverage() float64 {
 	return 0
 }
 
-type FloorRequest struct {
+type FloorCeilingRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -327,8 +327,8 @@ type FloorRequest struct {
 	Number float64 `protobuf:"fixed64,1,opt,name=number,proto3" json:"number,omitempty"`
 }
 
-func (x *FloorRequest) Reset() {
-	*x = FloorRequest{}
+func (x *FloorCeilingRequest) Reset() {
+	*x = FloorCeilingRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_models_operation_pb_operation_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -336,13 +336,13 @@ func (x *FloorRequest) Reset() {
 	}
 }
 
-func (x *FloorRequest) String() string {
+func (x *FloorCeilingRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FloorRequest) ProtoMessage() {}
+func (*FloorCeilingRequest) ProtoMessage() {}
 
-func (x *FloorRequest) ProtoReflect() protoreflect.Message {
+func (x *FloorCeilingRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_models_operation_pb_operation_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -354,19 +354,19 @@ func (x *FloorRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FloorRequest.ProtoReflect.Descriptor instead.
-func (*FloorRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use FloorCeilingRequest.ProtoReflect.Descriptor instead.
+func (*FloorCeilingRequest) Descriptor() ([]byte, []int) {
 	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *FloorRequest) GetNumber() float64 {
+func (x *FloorCeilingRequest) GetNumber() float64 {
 	if x != nil {
 		return x.Number
 	}
 	return 0
 }
 
-type FloorResponse struct {
+type FloorCeilingResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -374,8 +374,8 @@ type FloorResponse struct {
 	FloorValue float64 `protobuf:"fixed64,1,opt,name=floor_value,json=floorValue,proto3" json:"floor_value,omitempty"`
 }
 
-func (x *FloorResponse) Reset() {
-	*x = FloorResponse{}
+func (x *FloorCeilingResponse) Reset() {
+	*x = FloorCeilingResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_models_operation_pb_operation_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -383,13 +383,13 @@ func (x *FloorResponse) Reset() {
 	}
 }
 
-func (x *FloorResponse) String() string {
+func (x *FloorCeilingResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*FloorResponse) ProtoMessage() {}
+func (*FloorCeilingResponse) ProtoMessage() {}
 
-func (x *FloorResponse) ProtoReflect() protoreflect.Message {
+func (x *FloorCeilingResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_models_operation_pb_operation_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -401,108 +401,14 @@ func (x *FloorResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use FloorResponse.ProtoReflect.Descriptor instead.
-func (*FloorResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use FloorCeilingResponse.ProtoReflect.Descriptor instead.
+func (*FloorCeilingResponse) Descriptor() ([]byte, []int) {
 	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *FloorResponse) GetFloorValue() float64 {
+func (x *FloorCeilingResponse) GetFloorValue() float64 {
 	if x != nil {
 		return x.FloorValue
-	}
-	return 0
-}
-
-type CeilingRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Number float64 `protobuf:"fixed64,1,opt,name=number,proto3" json:"number,omitempty"`
-}
-
-func (x *CeilingRequest) Reset() {
-	*x = CeilingRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_models_operation_pb_operation_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CeilingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CeilingRequest) ProtoMessage() {}
-
-func (x *CeilingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_models_operation_pb_operation_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CeilingRequest.ProtoReflect.Descriptor instead.
-func (*CeilingRequest) Descriptor() ([]byte, []int) {
-	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *CeilingRequest) GetNumber() float64 {
-	if x != nil {
-		return x.Number
-	}
-	return 0
-}
-
-type CeilingResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CeilingValue float64 `protobuf:"fixed64,1,opt,name=ceiling_value,json=ceilingValue,proto3" json:"ceiling_value,omitempty"`
-}
-
-func (x *CeilingResponse) Reset() {
-	*x = CeilingResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_models_operation_pb_operation_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CeilingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CeilingResponse) ProtoMessage() {}
-
-func (x *CeilingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_models_operation_pb_operation_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CeilingResponse.ProtoReflect.Descriptor instead.
-func (*CeilingResponse) Descriptor() ([]byte, []int) {
-	return file_models_operation_pb_operation_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *CeilingResponse) GetCeilingValue() float64 {
-	if x != nil {
-		return x.CeilingValue
 	}
 	return 0
 }
@@ -533,47 +439,38 @@ var file_models_operation_pb_operation_proto_rawDesc = []byte{
 	0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x32, 0x0a, 0x16, 0x43, 0x6f, 0x6d, 0x70, 0x75,
 	0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
 	0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x01, 0x52, 0x07, 0x61, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x22, 0x26, 0x0a, 0x0c, 0x46,
-	0x6c, 0x6f, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6e,
-	0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x06, 0x6e, 0x75, 0x6d,
-	0x62, 0x65, 0x72, 0x22, 0x30, 0x0a, 0x0d, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x66, 0x6c, 0x6f, 0x6f, 0x72, 0x5f, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x0a, 0x66, 0x6c, 0x6f, 0x6f, 0x72,
-	0x56, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x28, 0x0a, 0x0e, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65,
-	0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22,
-	0x36, 0x0a, 0x0f, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x23, 0x0a, 0x0d, 0x63, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x5f, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x0c, 0x63, 0x65, 0x69, 0x6c, 0x69,
-	0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x32, 0xa2, 0x03, 0x0a, 0x10, 0x4f, 0x70, 0x65, 0x72,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03,
-	0x53, 0x75, 0x6d, 0x12, 0x18, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f,
-	0x70, 0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e,
-	0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x53, 0x75, 0x6d,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59, 0x0a, 0x0c, 0x50, 0x72,
-	0x69, 0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x12, 0x21, 0x2e, 0x6f, 0x70, 0x65,
-	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46,
-	0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e,
-	0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69,
-	0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x5f, 0x0a, 0x0e, 0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74, 0x65,
-	0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x12, 0x23, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74, 0x65, 0x41, 0x76,
-	0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x6f,
-	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x43, 0x6f, 0x6d, 0x70,
-	0x75, 0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x12, 0x46, 0x0a, 0x05, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x12,
-	0x1a, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x46,
-	0x6c, 0x6f, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x6f, 0x70,
-	0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x46, 0x6c, 0x6f, 0x6f, 0x72,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x12, 0x4c,
-	0x0a, 0x07, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x12, 0x1c, 0x2e, 0x6f, 0x70, 0x65, 0x72,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x42, 0x15, 0x5a, 0x13,
-	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x5f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x28, 0x01, 0x52, 0x07, 0x61, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x22, 0x2d, 0x0a, 0x13, 0x46,
+	0x6c, 0x6f, 0x6f, 0x72, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x01, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x37, 0x0a, 0x14, 0x46, 0x6c,
+	0x6f, 0x6f, 0x72, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x66, 0x6c, 0x6f, 0x6f, 0x72, 0x5f, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x01, 0x52, 0x0a, 0x66, 0x6c, 0x6f, 0x6f, 0x72, 0x56, 0x61,
+	0x6c, 0x75, 0x65, 0x32, 0xe9, 0x02, 0x0a, 0x10, 0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03, 0x53, 0x75, 0x6d, 0x12,
+	0x18, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x53,
+	0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x6f, 0x70, 0x65, 0x72,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59, 0x0a, 0x0c, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46,
+	0x61, 0x63, 0x74, 0x6f, 0x72, 0x73, 0x12, 0x21, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46, 0x61, 0x63, 0x74, 0x6f,
+	0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x6f, 0x70, 0x65, 0x72,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x46, 0x61,
+	0x63, 0x74, 0x6f, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30,
+	0x01, 0x12, 0x5f, 0x0a, 0x0e, 0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74, 0x65, 0x41, 0x76, 0x65, 0x72,
+	0x61, 0x67, 0x65, 0x12, 0x23, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f,
+	0x70, 0x62, 0x2e, 0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74, 0x65, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x43, 0x6f, 0x6d, 0x70, 0x75, 0x74, 0x65, 0x41,
+	0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x28, 0x01, 0x12, 0x5b, 0x0a, 0x0c, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x43, 0x65, 0x69, 0x6c, 0x69,
+	0x6e, 0x67, 0x12, 0x21, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x70,
+	0x62, 0x2e, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e, 0x67, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x5f, 0x70, 0x62, 0x2e, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x43, 0x65, 0x69, 0x6c, 0x69, 0x6e,
+	0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x42,
+	0x15, 0x5a, 0x13, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x5f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -588,7 +485,7 @@ func file_models_operation_pb_operation_proto_rawDescGZIP() []byte {
 	return file_models_operation_pb_operation_proto_rawDescData
 }
 
-var file_models_operation_pb_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_models_operation_pb_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_models_operation_pb_operation_proto_goTypes = []interface{}{
 	(*SumRequest)(nil),             // 0: operation_pb.SumRequest
 	(*SumResponse)(nil),            // 1: operation_pb.SumResponse
@@ -596,24 +493,20 @@ var file_models_operation_pb_operation_proto_goTypes = []interface{}{
 	(*PrimeFactorsResponse)(nil),   // 3: operation_pb.PrimeFactorsResponse
 	(*ComputeAverageRequest)(nil),  // 4: operation_pb.ComputeAverageRequest
 	(*ComputeAverageResponse)(nil), // 5: operation_pb.ComputeAverageResponse
-	(*FloorRequest)(nil),           // 6: operation_pb.FloorRequest
-	(*FloorResponse)(nil),          // 7: operation_pb.FloorResponse
-	(*CeilingRequest)(nil),         // 8: operation_pb.CeilingRequest
-	(*CeilingResponse)(nil),        // 9: operation_pb.CeilingResponse
+	(*FloorCeilingRequest)(nil),    // 6: operation_pb.FloorCeilingRequest
+	(*FloorCeilingResponse)(nil),   // 7: operation_pb.FloorCeilingResponse
 }
 var file_models_operation_pb_operation_proto_depIdxs = []int32{
 	0, // 0: operation_pb.OperationService.Sum:input_type -> operation_pb.SumRequest
 	2, // 1: operation_pb.OperationService.PrimeFactors:input_type -> operation_pb.PrimeFactorsRequest
 	4, // 2: operation_pb.OperationService.ComputeAverage:input_type -> operation_pb.ComputeAverageRequest
-	6, // 3: operation_pb.OperationService.Floor:input_type -> operation_pb.FloorRequest
-	8, // 4: operation_pb.OperationService.Ceiling:input_type -> operation_pb.CeilingRequest
-	1, // 5: operation_pb.OperationService.Sum:output_type -> operation_pb.SumResponse
-	3, // 6: operation_pb.OperationService.PrimeFactors:output_type -> operation_pb.PrimeFactorsResponse
-	5, // 7: operation_pb.OperationService.ComputeAverage:output_type -> operation_pb.ComputeAverageResponse
-	7, // 8: operation_pb.OperationService.Floor:output_type -> operation_pb.FloorResponse
-	9, // 9: operation_pb.OperationService.Ceiling:output_type -> operation_pb.CeilingResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
+	6, // 3: operation_pb.OperationService.FloorCeiling:input_type -> operation_pb.FloorCeilingRequest
+	1, // 4: operation_pb.OperationService.Sum:output_type -> operation_pb.SumResponse
+	3, // 5: operation_pb.OperationService.PrimeFactors:output_type -> operation_pb.PrimeFactorsResponse
+	5, // 6: operation_pb.OperationService.ComputeAverage:output_type -> operation_pb.ComputeAverageResponse
+	7, // 7: operation_pb.OperationService.FloorCeiling:output_type -> operation_pb.FloorCeilingResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -698,7 +591,7 @@ func file_models_operation_pb_operation_proto_init() {
 			}
 		}
 		file_models_operation_pb_operation_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FloorRequest); i {
+			switch v := v.(*FloorCeilingRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -710,31 +603,7 @@ func file_models_operation_pb_operation_proto_init() {
 			}
 		}
 		file_models_operation_pb_operation_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FloorResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_models_operation_pb_operation_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CeilingRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_models_operation_pb_operation_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CeilingResponse); i {
+			switch v := v.(*FloorCeilingResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -752,7 +621,7 @@ func file_models_operation_pb_operation_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_models_operation_pb_operation_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -781,8 +650,7 @@ type OperationServiceClient interface {
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
 	PrimeFactors(ctx context.Context, in *PrimeFactorsRequest, opts ...grpc.CallOption) (OperationService_PrimeFactorsClient, error)
 	ComputeAverage(ctx context.Context, opts ...grpc.CallOption) (OperationService_ComputeAverageClient, error)
-	Floor(ctx context.Context, opts ...grpc.CallOption) (OperationService_FloorClient, error)
-	Ceiling(ctx context.Context, opts ...grpc.CallOption) (OperationService_CeilingClient, error)
+	FloorCeiling(ctx context.Context, opts ...grpc.CallOption) (OperationService_FloorCeilingClient, error)
 }
 
 type operationServiceClient struct {
@@ -868,62 +736,31 @@ func (x *operationServiceComputeAverageClient) CloseAndRecv() (*ComputeAverageRe
 	return m, nil
 }
 
-func (c *operationServiceClient) Floor(ctx context.Context, opts ...grpc.CallOption) (OperationService_FloorClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_OperationService_serviceDesc.Streams[2], "/operation_pb.OperationService/Floor", opts...)
+func (c *operationServiceClient) FloorCeiling(ctx context.Context, opts ...grpc.CallOption) (OperationService_FloorCeilingClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_OperationService_serviceDesc.Streams[2], "/operation_pb.OperationService/FloorCeiling", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &operationServiceFloorClient{stream}
+	x := &operationServiceFloorCeilingClient{stream}
 	return x, nil
 }
 
-type OperationService_FloorClient interface {
-	Send(*FloorRequest) error
-	Recv() (*FloorResponse, error)
+type OperationService_FloorCeilingClient interface {
+	Send(*FloorCeilingRequest) error
+	Recv() (*FloorCeilingResponse, error)
 	grpc.ClientStream
 }
 
-type operationServiceFloorClient struct {
+type operationServiceFloorCeilingClient struct {
 	grpc.ClientStream
 }
 
-func (x *operationServiceFloorClient) Send(m *FloorRequest) error {
+func (x *operationServiceFloorCeilingClient) Send(m *FloorCeilingRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *operationServiceFloorClient) Recv() (*FloorResponse, error) {
-	m := new(FloorResponse)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func (c *operationServiceClient) Ceiling(ctx context.Context, opts ...grpc.CallOption) (OperationService_CeilingClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_OperationService_serviceDesc.Streams[3], "/operation_pb.OperationService/Ceiling", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &operationServiceCeilingClient{stream}
-	return x, nil
-}
-
-type OperationService_CeilingClient interface {
-	Send(*CeilingRequest) error
-	Recv() (*CeilingResponse, error)
-	grpc.ClientStream
-}
-
-type operationServiceCeilingClient struct {
-	grpc.ClientStream
-}
-
-func (x *operationServiceCeilingClient) Send(m *CeilingRequest) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *operationServiceCeilingClient) Recv() (*CeilingResponse, error) {
-	m := new(CeilingResponse)
+func (x *operationServiceFloorCeilingClient) Recv() (*FloorCeilingResponse, error) {
+	m := new(FloorCeilingResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -935,8 +772,7 @@ type OperationServiceServer interface {
 	Sum(context.Context, *SumRequest) (*SumResponse, error)
 	PrimeFactors(*PrimeFactorsRequest, OperationService_PrimeFactorsServer) error
 	ComputeAverage(OperationService_ComputeAverageServer) error
-	Floor(OperationService_FloorServer) error
-	Ceiling(OperationService_CeilingServer) error
+	FloorCeiling(OperationService_FloorCeilingServer) error
 }
 
 // UnimplementedOperationServiceServer can be embedded to have forward compatible implementations.
@@ -952,11 +788,8 @@ func (*UnimplementedOperationServiceServer) PrimeFactors(*PrimeFactorsRequest, O
 func (*UnimplementedOperationServiceServer) ComputeAverage(OperationService_ComputeAverageServer) error {
 	return status.Errorf(codes.Unimplemented, "method ComputeAverage not implemented")
 }
-func (*UnimplementedOperationServiceServer) Floor(OperationService_FloorServer) error {
-	return status.Errorf(codes.Unimplemented, "method Floor not implemented")
-}
-func (*UnimplementedOperationServiceServer) Ceiling(OperationService_CeilingServer) error {
-	return status.Errorf(codes.Unimplemented, "method Ceiling not implemented")
+func (*UnimplementedOperationServiceServer) FloorCeiling(OperationService_FloorCeilingServer) error {
+	return status.Errorf(codes.Unimplemented, "method FloorCeiling not implemented")
 }
 
 func RegisterOperationServiceServer(s *grpc.Server, srv OperationServiceServer) {
@@ -1028,52 +861,26 @@ func (x *operationServiceComputeAverageServer) Recv() (*ComputeAverageRequest, e
 	return m, nil
 }
 
-func _OperationService_Floor_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(OperationServiceServer).Floor(&operationServiceFloorServer{stream})
+func _OperationService_FloorCeiling_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(OperationServiceServer).FloorCeiling(&operationServiceFloorCeilingServer{stream})
 }
 
-type OperationService_FloorServer interface {
-	Send(*FloorResponse) error
-	Recv() (*FloorRequest, error)
+type OperationService_FloorCeilingServer interface {
+	Send(*FloorCeilingResponse) error
+	Recv() (*FloorCeilingRequest, error)
 	grpc.ServerStream
 }
 
-type operationServiceFloorServer struct {
+type operationServiceFloorCeilingServer struct {
 	grpc.ServerStream
 }
 
-func (x *operationServiceFloorServer) Send(m *FloorResponse) error {
+func (x *operationServiceFloorCeilingServer) Send(m *FloorCeilingResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *operationServiceFloorServer) Recv() (*FloorRequest, error) {
-	m := new(FloorRequest)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func _OperationService_Ceiling_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(OperationServiceServer).Ceiling(&operationServiceCeilingServer{stream})
-}
-
-type OperationService_CeilingServer interface {
-	Send(*CeilingResponse) error
-	Recv() (*CeilingRequest, error)
-	grpc.ServerStream
-}
-
-type operationServiceCeilingServer struct {
-	grpc.ServerStream
-}
-
-func (x *operationServiceCeilingServer) Send(m *CeilingResponse) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func (x *operationServiceCeilingServer) Recv() (*CeilingRequest, error) {
-	m := new(CeilingRequest)
+func (x *operationServiceFloorCeilingServer) Recv() (*FloorCeilingRequest, error) {
+	m := new(FloorCeilingRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -1101,14 +908,8 @@ var _OperationService_serviceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 		{
-			StreamName:    "Floor",
-			Handler:       _OperationService_Floor_Handler,
-			ServerStreams: true,
-			ClientStreams: true,
-		},
-		{
-			StreamName:    "Ceiling",
-			Handler:       _OperationService_Ceiling_Handler,
+			StreamName:    "FloorCeiling",
+			Handler:       _OperationService_FloorCeiling_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
 		},

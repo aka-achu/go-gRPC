@@ -27,26 +27,17 @@ message ComputeAverageResponse  {
     double average = 1;
 }
 
-message FloorRequest {
+message FloorCeilingRequest {
     double number = 1;
 }
 
-message FloorResponse {
+message FloorCeilingResponse {
     double floor_value = 1;
-}
-
-message CeilingRequest {
-    double number = 1;
-}
-
-message CeilingResponse {
-    double ceiling_value = 1;
 }
 
 service OperationService {
     rpc Sum (SumRequest) returns (SumResponse) {};
     rpc PrimeFactors (PrimeFactorsRequest) returns (stream PrimeFactorsResponse) {};
     rpc ComputeAverage (stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
-    rpc Floor (stream FloorRequest) returns (stream FloorResponse) {};
-    rpc Ceiling (stream CeilingRequest) returns (stream CeilingResponse) {};
+    rpc FloorCeiling (stream FloorCeilingRequest) returns (stream FloorCeilingResponse) {};
 }
