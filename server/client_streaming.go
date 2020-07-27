@@ -19,7 +19,7 @@ func (*UnimplementedOperationService) ComputeAverage(stream operation_pb.Operati
 			log.Fatalf("Failed to read the number from the stream. - %v", err)
 		} else {
 			sum += request.GetNumber()
-			count ++
+			count++
 		}
 	}
 }

@@ -12,7 +12,7 @@ func PrimeFactors(c operation_pb.OperationServiceClient) {
 		context.Background(),
 		&operation_pb.PrimeFactorsRequest{
 			Number: 120,
-	}); err != nil {
+		}); err != nil {
 		log.Fatalf("Failed to make the request from prime factor service. -%v", err)
 	} else {
 		for {

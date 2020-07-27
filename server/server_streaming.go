@@ -8,13 +8,11 @@ import (
 func (*UnimplementedOperationService) PrimeFactors(
 	request *operation_pb.PrimeFactorsRequest,
 	stream operation_pb.OperationService_PrimeFactorsServer,
-) (
-	error,
-) {
+) error {
 	var number = request.GetNumber()
-	for factor:= int64(2); number >1; factor++ {
-		if number % factor == 0 {
-			if err := stream.Send(&operation_pb.PrimeFactorsResponse{Number: factor}); err!= nil {
+	for factor := int64(2); number > 1; factor++ {
+		if number%factor == 0 {
+			if err := stream.Send(&operation_pb.PrimeFactorsResponse{Number: factor}); err != nil {
 				log.Fatalf("Failed to stream the factor to the client. - %v", err)
 			}
 			number = number / factor

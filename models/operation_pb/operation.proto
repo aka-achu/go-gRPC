@@ -33,6 +33,7 @@ message FloorCeilingRequest {
 
 message FloorCeilingResponse {
     double floor_value = 1;
+    double ceiling_value = 2;
 }
 
 service OperationService {

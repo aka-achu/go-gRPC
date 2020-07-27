@@ -6,14 +6,14 @@ import (
 	"log"
 )
 
-func ComputeAverage (c operation_pb.OperationServiceClient) {
+func ComputeAverage(c operation_pb.OperationServiceClient) {
 	if stream, err := c.ComputeAverage(context.Background()); err != nil {
 		log.Fatalf("Failed to open a stream connection. -%v", err)
 	} else {
-		for _,number := range []int64 {1,2,3,4,5,6,7,8,9} {
+		for _, number := range []int64{1, 2, 3, 4, 5, 6, 7, 8, 9} {
 			if err := stream.Send(&operation_pb.ComputeAverageRequest{
 				Number: number,
-			}); err !=nil {
+			}); err != nil {
 				log.Fatalf("Failed to send a number in the stream connection. -%v", err)
 			}
 		}
