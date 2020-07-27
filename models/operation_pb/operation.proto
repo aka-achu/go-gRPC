@@ -27,17 +27,26 @@ message ComputeAverageResponse  {
     double average = 1;
 }
 
-message SquareRootRequest {
-    int64 number = 1;
+message FloorRequest {
+    double number = 1;
 }
 
-message SquareRootResponse {
-    int64 root = 1;
+message FloorResponse {
+    double floor_value = 1;
+}
+
+message CeilingRequest {
+    double number = 1;
+}
+
+message CeilingResponse {
+    double ceiling_value = 1;
 }
 
 service OperationService {
     rpc Sum (SumRequest) returns (SumResponse) {};
     rpc PrimeFactors (PrimeFactorsRequest) returns (stream PrimeFactorsResponse) {};
     rpc ComputeAverage (stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
-    rpc SquareRoot (stream SquareRootRequest) returns (SquareRootResponse) {};
+    rpc Floor (stream FloorRequest) returns (stream FloorResponse) {};
+    rpc Ceiling (stream CeilingRequest) returns (stream CeilingResponse) {};
 }
