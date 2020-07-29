@@ -44,6 +44,15 @@ message SquareRootResponse {
     double root = 1;
 }
 
+message PowerRequest {
+    double base = 1;
+    double exponent = 2;
+}
+
+message PowerResponse {
+    double result = 1;
+}
+
 service OperationService {
     // Unary service
     rpc Sum (SumRequest) returns (SumResponse) {};
@@ -55,4 +64,6 @@ service OperationService {
     rpc FloorCeiling (stream FloorCeilingRequest) returns (stream FloorCeilingResponse) {};
     // Unary service with error handling
     rpc SquareRoot (SquareRootRequest) returns (SquareRootResponse) {};
+    // Unary service with deadline
+    rpc Power (PowerRequest) returns (PowerResponse) {};
 }

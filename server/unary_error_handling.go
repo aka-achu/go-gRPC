@@ -26,6 +26,4 @@ func (*Service) SquareRoot(
 	return &operation_pb.SquareRootResponse{
 		Root: math.Sqrt(number),
 	}, nil
-
-
 }

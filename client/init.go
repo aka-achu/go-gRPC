@@ -4,6 +4,7 @@ import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"google.golang.org/grpc"
 	"log"
+	"time"
 )
 
 func Initialize() {
@@ -17,5 +18,7 @@ func Initialize() {
 		ComputeAverage(c)
 		FloorCeiling(c)
 		SquareRoot(c)
+		Power(c, 1*time.Second)
+		Power(c, 5*time.Second)
 	}
 }
