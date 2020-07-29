@@ -5,7 +5,7 @@ import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 )
 
-func (*UnimplementedOperationService) Sum(
+func (*Service) Sum(
 	ctx context.Context,
 	request *operation_pb.SumRequest,
 ) (

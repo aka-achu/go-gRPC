@@ -7,7 +7,7 @@ import (
 	"math"
 )
 
-func (*UnimplementedOperationService) FloorCeiling(stream operation_pb.OperationService_FloorCeilingServer) error {
+func (*Service) FloorCeiling(stream operation_pb.OperationService_FloorCeilingServer) error {
 	for {
 		if request, err := stream.Recv(); err == io.EOF {
 			return nil

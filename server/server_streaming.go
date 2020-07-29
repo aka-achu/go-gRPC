@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func (*UnimplementedOperationService) PrimeFactors(
+func (*Service) PrimeFactors(
 	request *operation_pb.PrimeFactorsRequest,
 	stream operation_pb.OperationService_PrimeFactorsServer,
 ) error {
