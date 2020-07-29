@@ -36,9 +36,23 @@ message FloorCeilingResponse {
     double ceiling_value = 2;
 }
 
+message SquareRootRequest {
+    double number = 1;
+}
+
+message SquareRootResponse {
+    double root = 1;
+}
+
 service OperationService {
+    // Unary service
     rpc Sum (SumRequest) returns (SumResponse) {};
+    // Server streaming service
     rpc PrimeFactors (PrimeFactorsRequest) returns (stream PrimeFactorsResponse) {};
+    // Client streaming service
     rpc ComputeAverage (stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
+    // Bi-di streaming service
     rpc FloorCeiling (stream FloorCeilingRequest) returns (stream FloorCeilingResponse) {};
+    // Unary service with error handling
+    rpc SquareRoot (SquareRootRequest) returns (SquareRootResponse) {};
 }
