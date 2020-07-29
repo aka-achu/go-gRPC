@@ -16,5 +16,6 @@ func Initialize() {
 		PrimeFactors(c)
 		ComputeAverage(c)
 		FloorCeiling(c)
+		SquareRoot(c)
 	}
 }
