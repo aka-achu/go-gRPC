@@ -24,7 +24,7 @@ func SquareRoot(c operation_pb.OperationServiceClient) {
 				log.Fatalf("Failed to make the request to the server. -%v", err)
 			}
 		} else {
-			log.Printf("Responser from server. Square root-%f", response.GetRoot())
+			log.Printf("Response from server. Square root-%f", response.GetRoot())
 		}
 	}
 }
