@@ -21,6 +21,7 @@ func Power(c operation_pb.OperationServiceClient, deadline time.Duration) {
 		if responseError, stat := status.FromError(err); stat {
 			if responseError.Code() == codes.DeadlineExceeded {
 				logger("Deadline exceeded for the request")
+				return
 			}
 		} else {
 			fatalLogger("Failed to make the request to the server. -%v", err)

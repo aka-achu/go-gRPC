@@ -90,8 +90,9 @@ func Initialize() {
 		PrimeFactors(c)
 		ComputeAverage(c)
 		FloorCeiling(c)
-		SquareRoot(c)
+		//SquareRoot(c)
 		Power(c, 1*time.Second)
 		Power(c, 5*time.Second)
+		SumWithCompressor(c)
 	}
 }
