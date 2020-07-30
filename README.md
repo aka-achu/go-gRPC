@@ -11,8 +11,9 @@ go-gRPC demonstrates the use of gRPC framework in golang
   - ```Server Streaming service```
   - ```Client Streaming service```
   - ```Bi-directional Streaming service```
-  - ```gRPC error```
-  - ```gRPC request deadline```
+  - ```gRPC Error```
+  - ```gRPC request Deadline```
   - ```Securing server with ssl```
   - ```gRPC Iterceptor```
-  - ```compressor```
+  - ```Compressor```
+  - ```Load Balancing```
