@@ -17,3 +17,4 @@ go-gRPC demonstrates the use of gRPC framework in golang
   - ```gRPC Iterceptor```
   - ```Compressor```
   - ```Load Balancing```
+  - ```Multiplexer```
