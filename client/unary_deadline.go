@@ -5,7 +5,6 @@ import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"log"
 	"time"
 )
 
@@ -21,14 +20,13 @@ func Power(c operation_pb.OperationServiceClient, deadline time.Duration) {
 		}); err != nil {
 		if responseError, stat := status.FromError(err); stat {
 			if responseError.Code() == codes.DeadlineExceeded {
-				log.Println("Deadline exceeded for the request")
+				logger("Deadline exceeded for the request")
 			}
 		} else {
-			log.Fatalf("Failed to make the request to the server. -%v", err)
+			fatalLogger("Failed to make the request to the server. -%v", err)
 		}
 	} else {
-		log.Printf("Response from server. Power-%f", response.GetResult())
+		printer("Response from server. Power-%f", response.GetResult())
 	}
-
 	defer cancel()
 }

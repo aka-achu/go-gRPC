@@ -2,7 +2,6 @@ package server
 
 import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
-	"log"
 )
 
 func (*Service) PrimeFactors(
@@ -13,7 +12,7 @@ func (*Service) PrimeFactors(
 	for factor := int64(2); number > 1; factor++ {
 		if number%factor == 0 {
 			if err := stream.Send(&operation_pb.PrimeFactorsResponse{Number: factor}); err != nil {
-				log.Fatalf("Failed to stream the factor to the client. - %v", err)
+				fatalLogger("Failed to stream the factor to the client. - %v", err)
 			}
 			number = number / factor
 		}

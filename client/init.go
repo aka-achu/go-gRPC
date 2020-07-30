@@ -7,7 +7,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/oauth"
-	"log"
 	"os"
 	"path/filepath"
 	"time"
@@ -29,7 +28,7 @@ func unaryInterceptor(ctx context.Context, method string, req, reply interface{}
 			AccessToken: os.Getenv("FALLBACK_TOKEN"),
 		})))
 	}
-	log.Printf("RPC: %s, Request Time-%v", method, time.Now() )
+	logger("RPC: %s, Request Time-%v", method, time.Now() )
 	return invoker(ctx, method, req, reply, cc, opts...)
 }
 
@@ -43,7 +42,7 @@ func Initialize() {
 			),
 			"localhost",
 		); err != nil {
-			log.Fatalf("Failed to load CA trust certificate. -%v", err)
+			fatalLogger("Failed to load CA trust certificate. -%v", err)
 			return
 		} else {
 			opts = grpc.WithTransportCredentials(credential)
@@ -51,7 +50,7 @@ func Initialize() {
 
 	}
 	if clientConnection, err := grpc.Dial(os.Getenv("SERVER_ADDRESS"), opts, grpc.WithUnaryInterceptor(unaryInterceptor)); err != nil {
-		log.Fatalf("could not connect: %v", err)
+		fatalLogger("could not connect: %v", err)
 	} else {
 		defer clientConnection.Close()
 		c := operation_pb.NewOperationServiceClient(clientConnection)

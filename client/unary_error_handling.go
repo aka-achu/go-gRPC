@@ -5,7 +5,6 @@ import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"log"
 )
 
 func SquareRoot(c operation_pb.OperationServiceClient) {
@@ -18,13 +17,13 @@ func SquareRoot(c operation_pb.OperationServiceClient) {
 		); err != nil {
 			if responseError, stat := status.FromError(err); stat {
 				if responseError.Code() == codes.InvalidArgument {
-					log.Printf("Invalid argument to the squre root service. Negative number. -%v", err)
+					logger("Invalid argument to the squre root service. Negative number. -%v", err)
 				}
 			} else {
-				log.Fatalf("Failed to make the request to the server. -%v", err)
+				fatalLogger("Failed to make the request to the server. -%v", err)
 			}
 		} else {
-			log.Printf("Response from server. Square root-%f", response.GetRoot())
+			printer("Response from server. Square root-%f", response.GetRoot())
 		}
 	}
 }

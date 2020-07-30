@@ -3,7 +3,6 @@ package server
 import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"io"
-	"log"
 	"math"
 )
 
@@ -12,7 +11,7 @@ func (*Service) FloorCeiling(stream operation_pb.OperationService_FloorCeilingSe
 		if request, err := stream.Recv(); err == io.EOF {
 			return nil
 		} else if err != nil {
-			log.Fatalf("Failed to read client stream. -%v", err)
+			fatalLogger("Failed to read client stream. -%v", err)
 			return err
 		} else {
 			if err := stream.Send(
@@ -20,7 +19,7 @@ func (*Service) FloorCeiling(stream operation_pb.OperationService_FloorCeilingSe
 					FloorValue:   math.Floor(request.GetNumber()),
 					CeilingValue: math.Ceil(request.GetNumber()),
 				}); err != nil {
-				log.Fatalf("Failed to send floor_value & ceiling_value using stream. -%v", err)
+				fatalLogger("Failed to send floor_value & ceiling_value using stream. -%v", err)
 			}
 		}
 	}

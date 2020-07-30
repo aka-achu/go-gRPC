@@ -5,7 +5,6 @@ import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"log"
 	"math"
 	"time"
 )
@@ -19,7 +18,7 @@ func (*Service) Power(
 ) {
 	time.Sleep(2 * time.Second)
 	if ctx.Err() == context.DeadlineExceeded {
-		log.Printf("Deadline exceeds for the request. -%v", ctx.Err())
+		logger("Deadline exceeds for the request. -%v", ctx.Err())
 		return nil, status.Error(codes.DeadlineExceeded, "Deadline exceeds for the request")
 	} else {
 		return &operation_pb.PowerResponse{

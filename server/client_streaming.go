@@ -3,7 +3,6 @@ package server
 import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"io"
-	"log"
 )
 
 func (*Service) ComputeAverage(stream operation_pb.OperationService_ComputeAverageServer) error {
@@ -16,7 +15,7 @@ func (*Service) ComputeAverage(stream operation_pb.OperationService_ComputeAvera
 					Average: float64(sum) / float64(count),
 				})
 		} else if err != nil {
-			log.Fatalf("Failed to read the number from the stream. - %v", err)
+			fatalLogger("Failed to read the number from the stream. - %v", err)
 		} else {
 			sum += request.GetNumber()
 			count++
