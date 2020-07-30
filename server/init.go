@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"github.com/aka-achu/go-gRPC/models/greet_pb"
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -17,8 +18,12 @@ import (
 	"time"
 )
 
-type Service struct {
+type OperationService struct {
 	operation_pb.UnimplementedOperationServiceServer
+}
+
+type GreetService struct {
+	greet_pb.UnimplementedGreetServiceServer
 }
 
 func valid(authorization []string) bool {
@@ -89,7 +94,11 @@ func Serve(serverAddress string) {
 		opts = append(opts, grpc.UnaryInterceptor(unaryInterceptor))
 		opts = append(opts, grpc.StreamInterceptor(streamInterceptor))
 		s := grpc.NewServer(opts...)
-		operation_pb.RegisterOperationServiceServer(s, &Service{})
+		operation_pb.RegisterOperationServiceServer(s, &OperationService{})
+
+		// Multiplexer
+		// Registering one more services
+		greet_pb.RegisterGreetServiceServer(s, &GreetService{})
 		if err := s.Serve(listener); err != nil {
 			fatalLogger("failed start the serve-r %v", err)
 		}

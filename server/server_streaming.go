@@ -4,7 +4,7 @@ import (
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 )
 
-func (*Service) PrimeFactors(
+func (*OperationService) PrimeFactors(
 	request *operation_pb.PrimeFactorsRequest,
 	stream operation_pb.OperationService_PrimeFactorsServer,
 ) error {

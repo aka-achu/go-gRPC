@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func (*Service) Power(
+func (*OperationService) Power(
 	ctx context.Context,
 	request *operation_pb.PowerRequest,
 ) (

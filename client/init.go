@@ -3,6 +3,7 @@ package client
 import (
 	"context"
 	"fmt"
+	"github.com/aka-achu/go-gRPC/models/greet_pb"
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"golang.org/x/oauth2"
 	"google.golang.org/grpc"
@@ -100,6 +101,10 @@ func Initialize() {
 	} else {
 		defer clientConnection.Close()
 		c := operation_pb.NewOperationServiceClient(clientConnection)
+		g := greet_pb.NewGreetServiceClient(clientConnection)
+
+		Greet(g)
+
 		Sum(c)
 		PrimeFactors(c)
 		ComputeAverage(c)

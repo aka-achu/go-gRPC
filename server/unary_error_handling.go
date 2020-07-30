@@ -9,7 +9,7 @@ import (
 	"math"
 )
 
-func (*Service) SquareRoot(
+func (*OperationService) SquareRoot(
 	ctx context.Context,
 	request *operation_pb.SquareRootRequest,
 ) (

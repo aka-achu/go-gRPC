@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-func (*Service) ComputeAverage(stream operation_pb.OperationService_ComputeAverageServer) error {
+func (*OperationService) ComputeAverage(stream operation_pb.OperationService_ComputeAverageServer) error {
 	var sum int64
 	var count = 0
 	for {
