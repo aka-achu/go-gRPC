@@ -12,6 +12,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 type Service struct {
@@ -36,9 +37,31 @@ func unaryInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServ
 	}
 	m, err := handler(ctx, req)
 	if err != nil {
-		fatalLogger("RPC failed with error %v", err)
+		fatalLogger("RPC failed with error. -%v", err)
 	}
+	logger("Unary RPC Request: Time-%v", time.Now())
 	return m, err
+}
+
+func streamInterceptor(srv interface{}, ss grpc.ServerStream, info *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
+	md, ok := metadata.FromIncomingContext(ss.Context())
+	if !ok {
+		return status.Errorf(codes.InvalidArgument, "missing metadata")
+	}
+	if !valid(md["authorization"]) {
+		return status.Errorf(codes.Unauthenticated, "invalid token")
+	}
+	if err := handler(srv, &struct {
+		grpc.ServerStream
+	}{
+		ss,
+	});err != nil {
+		fatalLogger("RPC failed with error. -%v", err)
+		return err
+	} else {
+		logger("Stream RPC Request: Time-%v", time.Now())
+		return nil
+	}
 }
 
 func Initialize() {
@@ -63,6 +86,7 @@ func Initialize() {
 			}
 		}
 		opts = append(opts, grpc.UnaryInterceptor(unaryInterceptor))
+		opts = append(opts, grpc.StreamInterceptor(streamInterceptor))
 		s := grpc.NewServer(opts...)
 		operation_pb.RegisterOperationServiceServer(s, &Service{})
 		if err := s.Serve(listener); err != nil {
