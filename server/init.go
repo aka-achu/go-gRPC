@@ -5,6 +5,7 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net"
+	"os"
 )
 
 type Service struct{
@@ -12,7 +13,7 @@ type Service struct{
 }
 
 func Initialize() {
-	if listener, err := net.Listen("tcp", "0.0.0.0:50051"); err != nil {
+	if listener, err := net.Listen("tcp", os.Getenv("SERVER_ADDRESS")); err != nil {
 		log.Fatalf("Failed to listen @'0.0.0.0:50051'-  %v", err)
 	} else {
 		s := grpc.NewServer()
