@@ -7,9 +7,10 @@ go-gRPC demonstrates the use of gRPC framework in golang
 
 ### Features!
 
-  - ```Unary``` service
-  - ```Server Streaming``` service
-  - ```Client Streaming``` service
-  - ```Bi-directional Streaming``` service
+  - ```Unary service```
+  - ```Server Streaming service```
+  - ```Client Streaming service```
+  - ```Bi-directional Streaming service```
   - ```gRPC error```
   - ```gRPC request deadline```
+  - ```Securing server with ssl```
