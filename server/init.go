@@ -13,6 +13,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -65,10 +66,9 @@ func streamInterceptor(srv interface{}, ss grpc.ServerStream, info *grpc.StreamS
 	}
 }
 
-func Initialize() {
-
-	if listener, err := net.Listen("tcp", os.Getenv("SERVER_ADDRESS")); err != nil {
-		fatalLogger("Failed to listen @'%s'-  %v", os.Getenv("SERVER_ADDRESS"), err)
+func Serve(serverAddress string) {
+	if listener, err := net.Listen("tcp", serverAddress); err != nil {
+		fatalLogger("Failed to listen @'%s'-  %v", serverAddress, err)
 	} else {
 		var opts []grpc.ServerOption
 		if os.Getenv("SSL_MODE") == "true" {
@@ -94,4 +94,16 @@ func Initialize() {
 			fatalLogger("failed start the serve-r %v", err)
 		}
 	}
+}
+
+func Initialize() {
+	var wg sync.WaitGroup
+	for _, addr := range []string{os.Getenv("SERVER_1_ADDRESS"), os.Getenv("SERVER_2_ADDRESS")} {
+		wg.Add(1)
+		go func(addr string) {
+			defer wg.Done()
+			Serve(addr)
+		}(addr)
+	}
+	wg.Wait()
 }

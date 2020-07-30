@@ -2,11 +2,14 @@ package client
 
 import (
 	"context"
+	"fmt"
 	"github.com/aka-achu/go-gRPC/models/operation_pb"
 	"golang.org/x/oauth2"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/oauth"
+	"google.golang.org/grpc/resolver"
+	"google.golang.org/grpc/resolver/manual"
 	"os"
 	"path/filepath"
 	"time"
@@ -60,6 +63,14 @@ func streamInterceptor(ctx context.Context, desc *grpc.StreamDesc, cc *grpc.Clie
 }
 
 func Initialize() {
+	r := manual.NewBuilderWithScheme("operation")
+	r.InitialState(resolver.State{
+		Addresses: []resolver.Address{
+			{Addr: os.Getenv("SERVER_1_ADDRESS")},
+			{Addr: os.Getenv("SERVER_2_ADDRESS")},
+		},
+	})
+
 	opts := grpc.WithInsecure()
 	if os.Getenv("SSL_MODE") == "true" {
 		if credential, err := credentials.NewClientTLSFromFile(
@@ -77,10 +88,13 @@ func Initialize() {
 
 	}
 	if clientConnection, err := grpc.Dial(
-		os.Getenv("SERVER_ADDRESS"),
+		fmt.Sprintf("%s:///unused", r.Scheme()),
 		opts,
+		grpc.WithBlock(),
 		grpc.WithUnaryInterceptor(unaryInterceptor),
 		grpc.WithStreamInterceptor(streamInterceptor),
+		grpc.WithResolvers(r),
+		grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy": "round_robin"}`),
 		); err != nil {
 		fatalLogger("could not connect: %v", err)
 	} else {
@@ -91,7 +105,7 @@ func Initialize() {
 		ComputeAverage(c)
 		FloorCeiling(c)
 		//SquareRoot(c)
-		Power(c, 1*time.Second)
+		//Power(c, 1*time.Second)
 		Power(c, 5*time.Second)
 		SumWithCompressor(c)
 	}
