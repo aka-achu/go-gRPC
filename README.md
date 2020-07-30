@@ -15,3 +15,4 @@ go-gRPC demonstrates the use of gRPC framework in golang
   - ```gRPC request deadline```
   - ```Securing server with ssl```
   - ```gRPC Iterceptor```
+  - ```compressor```
